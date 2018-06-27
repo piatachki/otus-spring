@@ -2,18 +2,18 @@ package com.example.otus.service;
 
 import com.example.otus.model.Answer;
 import com.example.otus.model.Quiz;
-import com.example.otus.repository.QuizDataSource;
+import com.example.otus.repository.QuizSource;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Tester {
 
-    private QuizDataSource quizDataSource;
-    private CommunicationBridge communicator;
+    final private QuizSource quizSource;
+    final private CommunicationBridge communicator;
 
-    public Tester(QuizDataSource quizDataSource, CommunicationBridge communicationInterface) {
-        this.quizDataSource = quizDataSource;
+    public Tester(QuizSource quizSource, CommunicationBridge communicationInterface) {
+        this.quizSource = quizSource;
         this.communicator = communicationInterface;
     }
 
@@ -25,7 +25,7 @@ public class Tester {
         communicator.write("Input your surname");
         String surName = communicator.read();
 
-        List<Quiz> quizzes = quizDataSource.getQuizList();
+        List<Quiz> quizzes = quizSource.getQuizList();
         AtomicInteger score = new AtomicInteger();
 
         quizzes.forEach(quiz -> {
