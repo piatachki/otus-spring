@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fileQuizReader" class="com.example.otus.repository.FileQuizProvider">
+        <property name="filename" value="classpath:quizes.csv"/>
+    </bean>
+
+    <bean id="consoleBridge" class="com.example.otus.service.ConsoleBridge"/>
+
+    <bean id="tester" class="com.example.otus.service.Tester">
+        <constructor-arg index="0" ref="fileQuizReader"/>
+        <constructor-arg index="1" ref="consoleBridge"/>
+    </bean>
+
+</beans>
