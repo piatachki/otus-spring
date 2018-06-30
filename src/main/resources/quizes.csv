@@ -1,5 +1,5 @@
-1 Кому стоит изучть Spring Framework?;Тому, кто осилил Java SE~t;Тому, кто выучил PHP~f;Даже врагу не посоветую~f
-2 Какой тип конфигурации современнее?;Annotation Driven~t;XML Driven~f
-3 Какой тэг используется для внедрения зависимости через конструктор?;<property>~f;<constructor-arg>~t
-4 Какой тип ссылки вы будете использовать для контекста приложения?;AnnotationConfigApplicationContext~f;ClassPathXmlApplicationContext~f;ApplicationContext~t
-5 Почему предпочтительнее использовать ApplicationContext?;При прочих равных следует использовать наиболее обобщенные типы~t;Ой, всё~f
+Кому стоит изучть Spring Framework?;Тому, кто осилил Java SE~t;Тому, кто выучил PHP~f;Даже врагу не посоветую~f
+Какой тип конфигурации современнее?;Annotation Driven~t;XML Driven~f
+Какой тэг используется для внедрения зависимости через конструктор?;<property>~f;<constructor-arg>~t
+Какой тип ссылки вы будете использовать для контекста приложения?;AnnotationConfigApplicationContext~f;ClassPathXmlApplicationContext~f;ApplicationContext~t
+Почему предпочтительнее использовать ApplicationContext?;При прочих равных следует использовать наиболее обобщенные типы~t;Ой, всё~f

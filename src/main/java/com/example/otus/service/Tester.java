@@ -3,25 +3,37 @@ package com.example.otus.service;
 import com.example.otus.model.Answer;
 import com.example.otus.model.Quiz;
 import com.example.otus.repository.QuizSource;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
 
+@Service
 public class Tester {
 
     final private QuizSource quizSource;
     final private CommunicationBridge communicator;
+    final private Locale locale;
+    final private MessageSource messageSource;
 
-    public Tester(QuizSource quizSource, CommunicationBridge communicationInterface) {
+    public Tester(@Qualifier("bundleQuizSource") QuizSource quizSource,
+                  @Qualifier("consoleBridge") CommunicationBridge communicationInterface,
+                  @Qualifier("temporalLocale") Locale locale,
+                  @Qualifier("interfaceMessageSource") MessageSource messageSource) {
         this.quizSource = quizSource;
         this.communicator = communicationInterface;
+        this.locale = locale;
+        this.messageSource = messageSource;
     }
 
     public void doTest() {
 
-        communicator.write("Input your name:");
+        communicator.write(messageSource.getMessage("prompt.name", null, locale));
         String name = communicator.read();
 
-        communicator.write("Input your surname");
+        communicator.write(messageSource.getMessage("prompt.surname", null, locale));
         String surName = communicator.read();
 
         List<Quiz> quizzes = quizSource.getQuizList();
