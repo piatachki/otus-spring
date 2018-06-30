@@ -45,7 +45,7 @@ public class Tester {
                     for (int i = 0; i < answers.size(); i++) {
                         communicator.write((i + 1) + ": " + answers.get(i).getAnswer());
                     }
-                    communicator.write("Input number of answer seems right");
+                    communicator.write(messageSource.getMessage("prompt.answer", null, locale));
 
                     String answerInput = communicator.read();
                     int answerNumber = Integer.valueOf(answerInput);
@@ -56,6 +56,7 @@ public class Tester {
                 .sum();
 
         communicator.write(name + " " + surName);
-        communicator.write("Your score is " + score + " of " + quizzes.size());
+        String[] params = {Integer.toString(score), Integer.toString(quizzes.size())};
+        communicator.write(messageSource.getMessage("score", params, locale));
     }
 }
